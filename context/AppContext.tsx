@@ -1,13 +1,15 @@
-"use client"; // required for Next.js app router client-side context
+"use client";
 
 import { createContext, useContext, useState, ReactNode } from "react";
 
 // Define your context's value type
 type AppContextType = {
-  username: string;
-  setUsername: (name: string) => void;
-  isDarkMode: boolean;
-  toggleDarkMode: () => void;
+  isLeftSidebarVisible: boolean;
+  toggleLeftSidebar: () => void;
+  isRightSidebarVisible: boolean;
+  toggleRightSidebar: () => void;
+  isBottomBarVisible: boolean;
+  toggleBottomBar: () => void;
 };
 
 // Create context
@@ -15,13 +17,24 @@ const AppContext = createContext<AppContextType | undefined>(undefined);
 
 // Create Provider
 export const AppProvider = ({ children }: { children: ReactNode }) => {
-  const [username, setUsername] = useState("Guest");
-  const [isDarkMode, setIsDarkMode] = useState(false);
+ const [isLeftSidebarVisible, setLeftSidebarVisible] = useState(true);
+  const [isRightSidebarVisible, setRightSidebarVisible] = useState(true);
+  const [isBottomBarVisible, setBottomBarVisible] = useState(true);
 
-  const toggleDarkMode = () => setIsDarkMode((prev) => !prev);
+  const toggleLeftSidebar = () => setLeftSidebarVisible((prev) => !prev);
+  const toggleRightSidebar = () => setRightSidebarVisible((prev) => !prev);
+  const toggleBottomBar = () => setBottomBarVisible((prev) => !prev);
 
   return (
-    <AppContext.Provider value={{ username, setUsername, isDarkMode, toggleDarkMode }}>
+    <AppContext.Provider
+      value={{
+        isLeftSidebarVisible,
+        isRightSidebarVisible,
+        isBottomBarVisible,
+        toggleLeftSidebar,
+        toggleRightSidebar,
+        toggleBottomBar,
+      }}>
       {children}
     </AppContext.Provider>
   );
@@ -30,6 +43,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
 // Create custom hook to use context
 export const useAppContext = () => {
   const context = useContext(AppContext);
-  if (!context) throw new Error("useAppContext must be used within AppProvider");
+  if (!context)
+    throw new Error("useAppContext must be used within AppProvider");
   return context;
 };

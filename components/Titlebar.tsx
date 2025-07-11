@@ -1,6 +1,51 @@
-import React from "react";
+"use client";
+import { useEffect } from "react";
+import { useAppContext } from "../context/AppContext";
+import Image from 'next/image'
+import leftSidebarIcon from "../public/leftsidebar.svg";
+import bottombarIcon from "../public/bottombar.svg";
+import rightSidebarIcon from "../public/rightsidebar.svg";
+import "../app/styles/titlebar.scss";
 
 const Titlebar = () => {
+  const { toggleLeftSidebar, toggleRightSidebar, toggleBottomBar } =
+    useAppContext();
+
+  useEffect(() => {
+    const closeButton = document.getElementById("closeButton");
+    const minimizeButton = document.getElementById("minimizeButton");
+    const maximizeButton = document.getElementById("maximizeButton");
+
+    // Close App
+    closeButton.addEventListener("click", () => {
+      window.electronAPI.closeApp();
+    });
+
+    // Minimize App
+    minimizeButton.addEventListener("click", () => {
+      window.electronAPI.minimizeApp();
+    });
+
+    // Maximize or Restore App
+    maximizeButton.addEventListener("click", () => {
+      window.electronAPI.maximizeApp();
+    });
+
+    // Cleanup event listeners
+    return () => {
+      closeButton.removeEventListener("click", () => {
+        window.electronAPI.closeApp();
+      });
+      minimizeButton.removeEventListener("click", () => {
+        window.electronAPI.minimizeApp();
+      });
+      maximizeButton.removeEventListener("click", () => {
+        window.electronAPI.maximizeApp();
+      });
+    };
+  }, []);
+
+
   return (
     <div className="title-bar">
       <div className="window-controls">
@@ -73,3 +118,6 @@ const Titlebar = () => {
 };
 
 export default Titlebar;
+
+
+

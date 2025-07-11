@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 // import { Inter } from "next/font/google";
 import "./globals.css";
-
+import "@/app/styles/app.scss";
+import { AppProvider } from "@/context/AppContext";
+import Titlebar from "@/components/titlebar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,16 +17,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className='min-h-screen'
-      >
-      <div className="app">
-
-         
-
-        {children}
-        </div>
-       
+      <body className="min-h-screen">
+        <AppProvider>
+          <div className="app">
+            <Titlebar />
+            {children}
+          </div>
+        </AppProvider>
       </body>
     </html>
   );

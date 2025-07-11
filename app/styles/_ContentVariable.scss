@@ -1,0 +1,115 @@
+// variables.scss
+
+$font-family: 'Inter', sans-serif;
+$color-object: #BDB1FF;
+$color-icon-bg: #F4F7FF;
+$color-font: #25282a;
+$color-bg: white;
+$color-box-shadow: rgba(0, 0, 0, 0.1);
+$border-radius: 8px;
+$transition-ease: 450ms ease-in;
+$slider-thumb-size: 25px;
+$font-size-sm: 10px;
+$background-color-dark: #18222b;
+$text-color-dark:#ffffff;
+$background-color-light:#f6fafd;
+$tittle-bar-height:44px;
+$margin-main:6px;
+
+
+$bg-button-hover: rgb(210, 205, 210);
+
+$font-color: rgb(0, 0, 0);
+$title-text-size: 10px;
+$subtitle-text-size: 12px;
+$heading-text-size: 14px;
+
+$text-active-color: rgb(239, 239, 239);
+$text-hover-color: rgb(189, 199, 206);
+
+$button-bg-color: rgb(239, 239, 239);
+$button-color: rgb(255, 255, 255);
+$button-text-color: rgb(0, 0, 0);
+$button-text-size: 12px;
+
+
+
+
+$bg-primary: #F4F7FF;
+$bg-primary-dark: rgb(44, 44, 44);
+
+$bg-secondary: rgb(255, 255, 255);
+$bg-secondary-dark: rgb(0, 0, 0);
+
+$bg-button-hover: rgb(210, 205, 210);
+$bg-button-hover-dark: rgb(57, 57, 57);
+
+$font-color: rgb(0, 0, 0);
+$font-color-dark: rgb(249, 249, 249);
+
+$title-text-size: 10px;
+$subtitle-text-size: 12px;
+$logo-text-size: 14px;
+
+$text-active-color: rgb(239, 239, 239);
+$text-active-color-dark: rgb(67, 67, 67);
+
+$text-hover-color: rgb(189, 199, 206);
+$text-hover-color-dark: rgb(71, 74, 75);
+
+$button-bg-color: rgb(239, 239, 239);
+$button-bg-color-dark: rgb(44, 44, 44);
+
+$button-color: rgb(255, 255, 255);
+$button-text-color: rgb(0, 0, 0);
+$button-text-size: 12px;
+
+
+
+
+@mixin displayCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin displayColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin alignCenter {
+    display: flex;
+    align-items: center;
+}
+
+@mixin bgColorsLight {
+    background: $bg-primary;
+    color: $font-color;
+}
+
+@mixin bgColorsDark {
+    background: $bg-primary-dark;
+    color: $font-color-dark;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+}
+
+#root,
+.App {
+    height: 100%;
+    width: 100%;
+}
+
+a{
+    text-decoration: none !important;
+}
