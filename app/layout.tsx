@@ -21,7 +21,7 @@ export default function RootLayout({
         <AppProvider>
           <div className="app">
             <Titlebar />
-            {children}
+            <div className="main-bottom-wrapper">{children}</div>
           </div>
         </AppProvider>
       </body>

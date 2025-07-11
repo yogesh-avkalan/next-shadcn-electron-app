@@ -5,8 +5,8 @@ import Page from './dashboard/page'
 const Home = () => {
   return (
     <>
-      <h1>Hello World </h1>
-      {/* <Page /> */}
+      {/* <h1>Hello World </h1> */}
+      <Page />
     </>
   )
 }

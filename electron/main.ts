@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow, ipcMain } from "electron";
 import path from "path";
 
 let mainWindow: BrowserWindow | null = null;
@@ -7,6 +7,8 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     width: 1200,
     height: 800,
+    frame: false,
+    titlebarStyle: "hidden",
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
@@ -27,6 +29,24 @@ function createWindow() {
   if (process.env.NODE_ENV === "development") {
     mainWindow.webContents.openDevTools();
   }
+  
+  ipcMain.on("minimize-window", () => {
+    if (mainWindow) mainWindow.minimize();
+  });
+
+  ipcMain.on("maximize-window", () => {
+    if (mainWindow) {
+      if (mainWindow.isMaximized()) {
+        mainWindow.restore();
+      } else {
+        mainWindow.maximize();
+      }
+    }
+  });
+
+  ipcMain.on("close-window", () => {
+    if (mainWindow) mainWindow.close();
+  });
 }
 
 app.whenReady().then(createWindow);

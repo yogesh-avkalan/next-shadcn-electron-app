@@ -10,6 +10,8 @@ function createWindow() {
     mainWindow = new electron_1.BrowserWindow({
         width: 1200,
         height: 800,
+        frame: false,
+        titlebarStyle: "hidden",
         webPreferences: {
             nodeIntegration: false,
             contextIsolation: true,
@@ -28,6 +30,24 @@ function createWindow() {
     if (process.env.NODE_ENV === "development") {
         mainWindow.webContents.openDevTools();
     }
+    electron_1.ipcMain.on("minimize-window", () => {
+        if (mainWindow)
+            mainWindow.minimize();
+    });
+    electron_1.ipcMain.on("maximize-window", () => {
+        if (mainWindow) {
+            if (mainWindow.isMaximized()) {
+                mainWindow.restore();
+            }
+            else {
+                mainWindow.maximize();
+            }
+        }
+    });
+    electron_1.ipcMain.on("close-window", () => {
+        if (mainWindow)
+            mainWindow.close();
+    });
 }
 electron_1.app.whenReady().then(createWindow);
 electron_1.app.on("window-all-closed", () => {
