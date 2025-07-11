@@ -7,9 +7,9 @@ First, run the development server:
 ```bash
 npm run dev
 # or
-yarn dev
+npx tsc -p electron/tsconfig.json
 # or
-pnpm dev
+npm run electron:dev
 # or
 bun dev
 ```
