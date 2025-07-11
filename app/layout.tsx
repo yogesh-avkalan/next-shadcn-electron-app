@@ -18,7 +18,13 @@ export default function RootLayout({
       <body
         className='min-h-screen'
       >
+      <div className="app">
+
+         
+
         {children}
+        </div>
+       
       </body>
     </html>
   );
