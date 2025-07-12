@@ -1,4 +1,4 @@
-.app {
+.app-window {
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -16,19 +16,18 @@
     flex: 1;
   }
  
-  
-  .sidebar {
+  .window-sidebar {
     width: 313px;
     margin-top: 40px;
     background: #E1E1E1;
     padding: 20px;
   }
   
-  .left {
+  .window-left {
     border-right: 1px solid #ccc;
   }
   
-  .right {
+  .window-right {
     border-left: 1px solid #ccc;
   }
   .main-bottom-wrapper{

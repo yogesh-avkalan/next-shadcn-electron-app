@@ -49,7 +49,7 @@ const Titlebar = () => {
   return (
     <div className="title-bar">
       <div className="window-controls">
-        <button id="closeButton" className="close" aria-label="Close">
+        <button id="closeButton" className="close titlebar-button" aria-label="Close">
           <Image
             src="/assets/svg/close.svg"
             alt="Close"
@@ -57,7 +57,7 @@ const Titlebar = () => {
             height={28}
           />
         </button>
-        <button id="minimizeButton" className="minimize" aria-label="Minimize">
+        <button id="minimizeButton" className="minimize titlebar-button" aria-label="Minimize">
           <Image
             src="/assets/svg/minimize.svg"
             alt="Minimize"
@@ -65,7 +65,7 @@ const Titlebar = () => {
             height={28}
           />
         </button>
-        <button id="maximizeButton" className="maximize" aria-label="Maximize">
+        <button id="maximizeButton" className="maximize titlebar-button" aria-label="Maximize">
           <Image
             src="/assets/svg/maximize.svg"
             alt="Maximize"
@@ -84,6 +84,7 @@ const Titlebar = () => {
           <Image
             src={leftSidebarIcon}
             alt="Left Sidebar"
+            className="titlebar-img"
             width={28}
             height={28}
           />
@@ -96,6 +97,7 @@ const Titlebar = () => {
           <Image
             src={bottombarIcon}
             alt="Right Sidebar"
+            className="titlebar-img"
             width={28}
             height={28}
           />
@@ -108,6 +110,7 @@ const Titlebar = () => {
           <Image
             src={rightSidebarIcon}
             alt="Bottom Bar"
+            className="titlebar-img"
             width={28}
             height={28}
           />

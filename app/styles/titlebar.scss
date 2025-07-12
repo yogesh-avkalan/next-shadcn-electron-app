@@ -19,7 +19,7 @@
     display: flex;
     align-items: center;
 
-    button {
+    .titlebar-button {
       width: 12px;
       height: 12px;
       border: none;
@@ -28,18 +28,18 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow: hidden; /* Keeps everything contained within the button */
+      overflow: hidden;
       -webkit-app-region: no-drag;
       padding: 3px;
 
-      img {
+      .titlebar-img {
         width: 100%; /* Scales the SVG to fit the button */
         height: auto;
         transition: opacity 0.2s ease-in-out;
         opacity: 0; /* SVG is transparent by default */
       }
 
-      &:hover img {
+      &:hover .titlebar-img {
         opacity: 1; /* SVG becomes fully visible on hover */
       }
 
@@ -68,7 +68,7 @@
     margin-left: 16px;
     -webkit-app-region: no-drag;
 
-    img{
+    .titlebar-img{
       width: 18px;
       height: 18px;
     }
@@ -126,7 +126,7 @@
       &:hover {
         background-color: #ffffff16;
       }
-      img{
+      .titlebar-img{
         width: 18px;
         height: 18px;
       }

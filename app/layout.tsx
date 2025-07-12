@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="min-h-screen">
         <AppProvider>
-          <div className="app">
+          <div className="app-window">
             <Titlebar />
             <div className="main-bottom-wrapper">{children}</div>
           </div>
